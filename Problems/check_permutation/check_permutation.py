@@ -8,21 +8,15 @@ permutation of the other.
 
 # Time complaxity: O(nlogn)
 def check_permutation_sort(s1: str, s2: str):
-    length = len(s1)
-    if length != len(s2):
-            return False
-    s1_sorted = sorted(s1)
-    s2_sorted = sorted(s2)
-    for i in range(length):
-        if s1_sorted[i] != s2_sorted[i]:
-            return False
-    return True
+    if len(s1) != len(s2):
+        return False
+    return sorted(s1) == sorted(s2)
 
 
 # Time complaxity: O(n)
 def check_permutation_hash(s1: str, s2: str):
     if len(s1) != len(s2):
-            return False
+        return False
     letters = {}
     for letter in s1:
         if letters.get(letter) is None:
@@ -36,3 +30,14 @@ def check_permutation_hash(s1: str, s2: str):
         else:
             letters.pop(letter)
     return True
+
+def check_permutation_list(s1: str, s2: str):
+    if len(s1) != len(s2):
+        return False
+    letters1 = [0] * 128
+    letters2 = [0] * 128
+    for letter in s1:
+        letters1[ord(letter)] += 1
+    for letter in s2:
+        letters2[ord(letter)] += 1
+    return letters1 == letters2

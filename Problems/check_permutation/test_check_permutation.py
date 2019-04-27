@@ -62,5 +62,33 @@ class TestCheckPermutation(unittest.TestCase):
         self.assertFalse(cp.check_permutation_hash('ccc', 'cac'))
 
 
+    def test_check_permutation_list(self):
+        # Positive tests.
+        self.assertTrue(cp.check_permutation_list('', ''))
+        self.assertTrue(cp.check_permutation_list('a', 'a'))
+        self.assertTrue(cp.check_permutation_list('ab', 'ab'))
+        self.assertTrue(cp.check_permutation_list('ab', 'ba'))
+        self.assertTrue(cp.check_permutation_list('ba', 'ab'))
+        self.assertTrue(cp.check_permutation_list('abc', 'abc'))
+        self.assertTrue(cp.check_permutation_list('abc', 'acb'))
+        self.assertTrue(cp.check_permutation_list('abc', 'cab'))
+        self.assertTrue(cp.check_permutation_list('abc', 'cba'))
+        self.assertTrue(cp.check_permutation_list('abc', 'bca'))
+        self.assertTrue(cp.check_permutation_list('abc', 'bac'))
+        self.assertTrue(cp.check_permutation_list('aac', 'aca'))
+        self.assertTrue(cp.check_permutation_list('aaaa', 'aaaa'))
+
+        # Negative tests.
+        self.assertFalse(cp.check_permutation_list('', 'a'))
+        self.assertFalse(cp.check_permutation_list('a', ''))
+        self.assertFalse(cp.check_permutation_list('ab', 'a'))
+        self.assertFalse(cp.check_permutation_list('a', 'ab'))
+        self.assertFalse(cp.check_permutation_list('aa', 'ab'))
+        self.assertFalse(cp.check_permutation_list('abc', 'aabc'))
+        self.assertFalse(cp.check_permutation_list('aabc', 'abc'))
+        self.assertFalse(cp.check_permutation_list('abc', 'aac'))
+        self.assertFalse(cp.check_permutation_list('ccc', 'cac'))
+
+
 if __name__ == '__main__':
     unittest.main()
