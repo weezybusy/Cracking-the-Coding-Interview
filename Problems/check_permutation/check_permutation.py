@@ -6,14 +6,16 @@ permutation of the other.
 """
 
 
-# Time complaxity: O(nlogn)
+# Time complexity:  O(nlogn)
+# Space complexity: O(1)
 def check_permutation_sort(s1: str, s2: str):
     if len(s1) != len(s2):
         return False
     return sorted(s1) == sorted(s2)
 
 
-# Time complaxity: O(n)
+# Time complexity:  O(n)
+# Space complexity: O(n)
 def check_permutation_hash(s1: str, s2: str):
     if len(s1) != len(s2):
         return False
@@ -31,6 +33,8 @@ def check_permutation_hash(s1: str, s2: str):
             letters.pop(letter)
     return True
 
+# Time complexity:  O(n)
+# Space complexity: O(n)
 def check_permutation_list(s1: str, s2: str):
     if len(s1) != len(s2):
         return False
