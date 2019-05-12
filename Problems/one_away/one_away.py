@@ -13,13 +13,16 @@ EXAMPLE:
     pale,  bae  -> false
 """
 
+
+# n = len(s1), m = len(s2).
+# Time complexity:  O(n + m).
+# Space complexity: O(max(n, m)).
 def one_away(s1: str, s2: str):
 
     if s1 == s2:
         return True
 
     difference = abs(len(s1) - len(s2))
-
     if difference > 1:
         return False
 
@@ -40,6 +43,8 @@ def one_away(s1: str, s2: str):
                 letters.pop(ch)
             else:
                 letters[ch] -= 1
+        if changes > 1:
+            return False
 
     if len(letters) > 0 and difference > 0:
         changes += 1
