@@ -29,6 +29,11 @@ class TestOneWay(unittest.TestCase):
         self.assertFalse(one_away('pale', 'bae'))
         self.assertFalse(one_away('bae', 'pale'))
         self.assertFalse(one_away('pppppp', 'pppp'))
+        self.assertFalse(one_away('a', 'bc'))
+        self.assertFalse(one_away('ab', 'c'))
+        self.assertFalse(one_away('ab', 'cde'))
+        self.assertFalse(one_away('abc', 'de'))
+        self.assertFalse(one_away('abc', 'def'))
 
 
 if __name__ == "__main__":

@@ -15,7 +15,7 @@ EXAMPLE:
 
 
 # n = len(s1), m = len(s2).
-# Time complexity:  O(n + m).
+# Time complexity:  O(max(n, m)).
 # Space complexity: O(max(n, m)).
 def one_away(s1: str, s2: str):
 
@@ -23,6 +23,7 @@ def one_away(s1: str, s2: str):
         return True
 
     difference = abs(len(s1) - len(s2))
+
     if difference > 1:
         return False
 
@@ -50,3 +51,48 @@ def one_away(s1: str, s2: str):
         changes += 1
 
     return changes == 1
+
+
+def one_away_alt(s1: str, s2: str):
+    difference = len(s1) - len(s2)
+    if difference == 0:
+        return one_replace(s1, s2)
+    elif difference + 1 == 0:
+        return one_insert(s1, s2)
+    elif difference - 1 == 0:
+        return one_insert(s2, s1)
+    print('too big: ', end='')
+    return False
+
+
+def one_replace(s1: str, s2: str):
+    print('replace: ', end='')
+    found_difference = False
+    for i in range(len(s1)):
+        if s1[i] != s2[i]:
+            if found_difference:
+                return False
+            found_difference = True
+    return True
+
+
+def one_insert(s1: str, s2: str):
+    print('insert/delete: ', end='')
+    i = 0
+    j = 0
+    while i < len(s1) and j < len(s2):
+        if s1[i] != s2[j]:
+            if i != j:
+                return False
+            j += 1
+        else:
+            i += 1
+            j += 1
+    return True
+
+
+print(one_away_alt('sale', 'sale'))
+print(one_away_alt('sale', 'sal'))
+print(one_away_alt('sale', 'gale'))
+print(one_away_alt('sale', 'gole'))
+print(one_away_alt('sale', 'soledo'))
