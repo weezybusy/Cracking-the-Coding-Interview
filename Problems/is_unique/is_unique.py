@@ -19,7 +19,7 @@ def is_unique_hash(s: str):
 
 
 # Time complexity:  O(n*log(n))
-# Space complexity: O(1)
+# Space complexity: O(n)
 def is_unique_sort(s: str):
     s2 = sorted(s)
     for i in range(len(s2) - 1):

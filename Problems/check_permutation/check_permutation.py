@@ -7,7 +7,7 @@ permutation of the other.
 
 
 # Time complexity:  O(nlogn)
-# Space complexity: O(1)
+# Space complexity: O(n)
 def check_permutation_sort(s1: str, s2: str):
     if len(s1) != len(s2):
         return False
