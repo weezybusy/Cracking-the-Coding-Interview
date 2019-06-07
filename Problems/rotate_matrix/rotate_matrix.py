@@ -7,9 +7,9 @@ do this in place?
 """
 
 # Check if the provided matrix is NxN.
-def is_nxn(matrix):
+def is_4n_x_4n(matrix):
     n = len(matrix)
-    if n == 0:
+    if n == 0 or n % 4 != 0:
         return False
     for i in range(n):
         if len(matrix[i]) != n:
@@ -21,14 +21,16 @@ def is_nxn(matrix):
 # Space complexity: O(n).
 def rotate_matrix(matrix):
 
-    if not is_nxn(matrix):
+    if not is_4n_x_4n(matrix):
         return None
 
     n = len(matrix)
     new_matrix = [[0 for j in range(n)] for i in range(n)]
+
     for i in range(n):
         for j in range(n):
-            new_matrix[i][j] = matrix[j][n-1-i]
+            new_matrix[i][j] = matrix[n-1-j][i]
+
     return new_matrix
 
 
@@ -36,7 +38,7 @@ def rotate_matrix(matrix):
 # Space complexity: O(1).
 def rotate_matrix_in_place(matrix):
 
-    if not is_nxn(matrix):
+    if not is_4n_x_4n(matrix):
         return False
 
     n = len(matrix)
