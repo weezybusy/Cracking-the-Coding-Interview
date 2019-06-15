@@ -2,7 +2,7 @@
 
 
 import unittest
-import zero_matrix as zm
+from zero_matrix import zero_matrix, zero_matrix_alt
 
 
 class TestZeroMatrix(unittest.TestCase):
@@ -11,26 +11,26 @@ class TestZeroMatrix(unittest.TestCase):
 
         matrix = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]]
         expected_output = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]]
-        zm.zero_matrix(matrix)
+        zero_matrix(matrix)
         self.assertEqual(matrix, expected_output)
 
         matrix = [[1, 0, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]]
-        zm.zero_matrix(matrix)
+        zero_matrix(matrix)
         expected_output = [[0, 0, 0], [1, 0, 1], [1, 0, 1], [1, 0, 1]]
         self.assertEqual(matrix, expected_output)
 
         matrix = [[1, 1, 1], [1, 1, 0], [1, 1, 1], [1, 1, 1]]
-        zm.zero_matrix(matrix)
+        zero_matrix(matrix)
         expected_output = [[1, 1, 0], [0, 0, 0], [1, 1, 0], [1, 1, 0]]
         self.assertEqual(matrix, expected_output)
 
         matrix = [[0, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 0]]
-        zm.zero_matrix(matrix)
+        zero_matrix(matrix)
         expected_output = [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]
         self.assertEqual(matrix, expected_output)
 
         matrix = [[0, 1, 1, 1], [1, 0, 1, 1], [1, 1, 0, 1], [1, 1, 1, 0]]
-        zm.zero_matrix(matrix)
+        zero_matrix(matrix)
         expected_output = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         self.assertEqual(matrix, expected_output)
 
@@ -38,26 +38,26 @@ class TestZeroMatrix(unittest.TestCase):
 
         matrix = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]]
         expected_output = [[1, 1, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]]
-        zm.zero_matrix_alt(matrix)
+        zero_matrix_alt(matrix)
         self.assertEqual(matrix, expected_output)
 
         matrix = [[1, 0, 1], [1, 1, 1], [1, 1, 1], [1, 1, 1]]
-        zm.zero_matrix_alt(matrix)
+        zero_matrix_alt(matrix)
         expected_output = [[0, 0, 0], [1, 0, 1], [1, 0, 1], [1, 0, 1]]
         self.assertEqual(matrix, expected_output)
 
         matrix = [[1, 1, 1], [1, 1, 0], [1, 1, 1], [1, 1, 1]]
-        zm.zero_matrix_alt(matrix)
+        zero_matrix_alt(matrix)
         expected_output = [[1, 1, 0], [0, 0, 0], [1, 1, 0], [1, 1, 0]]
         self.assertEqual(matrix, expected_output)
 
         matrix = [[0, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 0]]
-        zm.zero_matrix_alt(matrix)
+        zero_matrix_alt(matrix)
         expected_output = [[0, 0, 0, 0], [0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]]
         self.assertEqual(matrix, expected_output)
 
         matrix = [[0, 1, 1, 1], [1, 0, 1, 1], [1, 1, 0, 1], [1, 1, 1, 0]]
-        zm.zero_matrix_alt(matrix)
+        zero_matrix_alt(matrix)
         expected_output = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
         self.assertEqual(matrix, expected_output)
 
