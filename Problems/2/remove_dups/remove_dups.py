@@ -11,17 +11,20 @@ def remove_dups(lst):
     if lst.size < 2:
         return
 
-    check_node = lst.head
-    prev_node = lst.head
-    curr_node = lst.head.next
+    check = lst.head
+    prev = lst.head
+    curr = lst.head.next
 
-    while check_node.next is not None:
-        while curr_node is not None:
-            if curr_node.data == check_node.data:
-                prev_node.next = prev_node.next.next
+    while True:
+        while curr is not None:
+            if curr.data == check.data:
+                prev.next = curr.next
                 lst.size -= 1
-            prev_node = curr_node
-            curr_node = curr_node.next
-        check_node = check_node.next
-        prev_node = check_node
-        curr_node = check_node.next
+            else:
+                prev = prev.next
+            curr = curr.next
+        if check.next is None:
+            break
+        check = check.next
+        prev = check
+        curr = check.next
