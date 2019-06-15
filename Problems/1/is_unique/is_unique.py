@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 """
 is_unique: implement an algorithm to determine if a string has all unique
 characters. What if you cannot use additional data structures?
