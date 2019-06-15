@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import unittest
-from palindrome_permutation import palindrome_permutation
-from palindrome_permutation import palindrome_permutation_bit
+from palindrome_permutation import palindrome_permutation, \
+        palindrome_permutation_bit
 
 
 class TestPalindromePermutation(unittest.TestCase):
