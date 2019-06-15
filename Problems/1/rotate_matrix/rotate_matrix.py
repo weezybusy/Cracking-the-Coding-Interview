@@ -6,7 +6,7 @@ the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you
 do this in place?
 """
 
-# Check if the provided matrix is NxN.
+# Check if the provided matrix is 4Nx4N.
 def is_4n_x_4n(matrix):
     n = len(matrix)
     if n == 0 or n % 4 != 0:
@@ -42,7 +42,7 @@ def rotate_matrix_in_place(matrix):
         return False
 
     n = len(matrix)
-    for layer in range(n/2):
+    for layer in range(int(n/2)):
         first = layer
         last = n - 1 - layer
         for i in range(first, last):
