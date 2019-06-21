@@ -12,7 +12,7 @@ from singly_linked_list import Node, SinglyLinkedList
 
 def kth_to_last(lst, k):
     """
-    This solution implies that the singly linked list implemented with the
+    This solution implies that the singly linked list is implemented with the
     size variable.
     """
     if k < 0 or k > lst.size - 1:
@@ -26,8 +26,8 @@ def kth_to_last(lst, k):
 
 def kth_to_last_alt(lst, k):
     """
-    This solution implies that the singly linked list implemented without the
-    size variable.
+    This solution implies that the singly linked list is implemented without
+    the size variable.
     """
     node = lst.head
     size = 0
@@ -43,22 +43,35 @@ def kth_to_last_alt(lst, k):
     return node
 
 
-def kth_to_last_recur(node, k, i):
-
-    if node is None:
+def kth_to_last_recur(node, k):
+    """
+    This solution implies that the singly linked list is implemented without
+    the size variable.
+    """
+    i = getk(node, k, 0)
+    if i < 0:
         return None
+    while i > 0:
+        node = node.next
+        i -= 1
+    return node
 
-    tmp_node = kth_to_last_recur(node.next, k, i);
-    i += 1
-    if i == k:
-        return node.data
+
+def getk(node, k, i):
+    if k < 0:
+        return k
+    elif node.next is None:
+        return i - k
     else:
-        return tmp_node
+        return getk(node.next, k, i+1)
 
 
 lst = SinglyLinkedList()
 for i in range(5):
-    lst.insert_tail(Node(i))
+    lst.insert_tail(Node(chr(97+i)))
 print(lst)
-
-print(kth_to_last_recur(lst.head, 2, 0))
+print(f'kth_to_last_recur(lst.head, -1) -> {kth_to_last_recur(lst.head, -1)}')
+print(f'kth_to_last_recur(lst.head, 0) -> {kth_to_last_recur(lst.head, 0)}')
+print(f'kth_to_last_recur(lst.head, 2) -> {kth_to_last_recur(lst.head, 2)}')
+print(f'kth_to_last_recur(lst.head, 4) -> {kth_to_last_recur(lst.head, 4)}')
+print(f'kth_to_last_recur(lst.head, 5) -> {kth_to_last_recur(lst.head, 5)}')
