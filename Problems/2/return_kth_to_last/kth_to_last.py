@@ -10,6 +10,8 @@ of a singly linked list.
 from singly_linked_list import Node, SinglyLinkedList
 
 
+# Time complexity:  O(n).
+# Space complexity: O(1).
 def kth_to_last(lst, k):
     """
     This solution implies that the singly linked list is implemented with the
@@ -24,6 +26,8 @@ def kth_to_last(lst, k):
     return node
 
 
+# Time complexity:  O(n).
+# Space complexity: O(1).
 def kth_to_last_alt(lst, k):
     """
     This solution implies that the singly linked list is implemented without
