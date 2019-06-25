@@ -13,9 +13,8 @@ from singly_linked_list import Node, SinglyLinkedList
 # Time complexity:  O(n).
 # Space complexity: O(1).
 def kth_to_last(lst, k):
-    """
-    This solution implies that the singly linked list is implemented with the
-    size variable.
+    """This solution implies that the singly linked list is implemented with
+    the size variable.
     """
     if k < 0 or k > lst.size - 1:
         return None
@@ -29,9 +28,8 @@ def kth_to_last(lst, k):
 # Time complexity:  O(n).
 # Space complexity: O(1).
 def kth_to_last_alt(lst, k):
-    """
-    This solution implies that the singly linked list is implemented without
-    the size variable.
+    """This solution implies that the singly linked list is implemented
+    without the size variable.
     """
     node = lst.head
     size = 0
@@ -45,3 +43,18 @@ def kth_to_last_alt(lst, k):
     for i in range(n):
         node = node.next
     return node
+
+
+# Time complexity:  O(n).
+# Space complexity: O(n).
+def kth_to_last_recur(lst, k):
+    """This is a recursive solution."""
+    def fn(head, k):
+        if head is None:
+            return None, 0
+        node, idx = fn(head.next, k)
+        idx += 1
+        if idx == k:
+            return head, idx
+        return node, idx
+    return fn(lst.head, k)[0]
