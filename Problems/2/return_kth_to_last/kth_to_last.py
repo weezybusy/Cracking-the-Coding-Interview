@@ -51,7 +51,7 @@ def kth_to_last_recur(lst, k):
     """This is a recursive solution."""
     def fn(head, k):
         if head is None:
-            return None, 0
+            return None, -1
         node, idx = fn(head.next, k)
         idx += 1
         if idx == k:
